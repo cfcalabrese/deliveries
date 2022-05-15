@@ -1,0 +1,26 @@
+version: '3.9'
+services:
+  postgres:
+    restart: always
+    image: postgres:14-alpine
+    ports:
+      - 5432:5432
+    volumes:
+      - ./postgres/apps/postgres:/var/lib/postgresql/data
+      - ./postgres/data:/pgdata
+      - ./postgres/init/create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql
+      - ./postgres/init/import.sql:/docker-entrypoint-initdb.d/import.sql
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=digihaul
+  api:
+    restart: always
+    build: ./api
+    ports:
+      - 5000:5000
+    volumes:
+      - ./api:/app
+    depends_on:
+      - postgres
+    entrypoint: ["python", "app.py"]

@@ -1,0 +1,19 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+flask = "*"
+pymongo = {extras = ["srv"], version = "*"}
+pyyaml = "*"
+sqlalchemy = "*"
+flask-sqlalchemy = "*"
+psycopg2 = "*"
+pandas = "*"
+numpy = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.10"
