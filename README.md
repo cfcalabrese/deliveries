@@ -25,24 +25,20 @@
     This can be done by opening a bash terminal and running, for example,
     to send a new set of coordinates for the `shipment_number` `SEZHUK-201218-000183`:<br>
         ```
-        {
-            curl -X POST \
-                -H 'Content-Type:application/json' \
-                -d '{"location_time":"Thu, 28 Jan 2021 09:08:00 GMT", "latitude": 100.00, "longitude": 100.00}' \
-                http://localhost:5000/api/location_tracking/SEZHUK-201218-000183
-        }
+        curl -X POST \
+            -H 'Content-Type:application/json' \
+            -d '{"location_time":"Thu, 28 Jan 2021 09:08:00 GMT", "latitude": 100.00, "longitude": 100.00}' \
+            http://localhost:5000/api/location_tracking/SEZHUK-201218-000183
         ```
     <br>This POST request will also write the new data to the database.
 
     For adding new data to the shipments tracking data, a similar procedure can be followed.
     For example, to add a new shipment:<br>
         ```
-        {
-            curl -X POST \
-                -H 'Content-Type:application/json' \
-                -d '{"booking_date":"Thu, 28 Jan 2021 09:08:00 GMT", "collection_postcode": "DG16 TEST", "delivery_postcode": "EH54 TEST", "first_collection_schedule_earliest":"Wed, 06 Jan 2021 14:00:00 GMT", "first_collection_schedule_latest":"Wed, 06 Jan 2021 16:00:00 GMT", "last_delivery_schedule_earliest":"Thu, 07 Jan 2021 06:30:00 GMT", "last_delivery_schedule_latest":"Thu, 07 Jan 2021 07:00:00 GMT", "scheduled_collection_date":"Wed, 06 Jan 2021 00:00:00 GMT", "scheduled_delivery_date":"Thu, 07 Jan 2021 00:00:00 GMT", "shipment_number":"TEST", "vehicle_type":"Tractor Unit / Curtain side", "delivered_at":null}' \
-                http://localhost:5000/api/shipments_tracking
-        }
+        curl -X POST \
+            -H 'Content-Type:application/json' \
+            -d '{"booking_date":"Thu, 28 Jan 2021 09:08:00 GMT", "collection_postcode": "DG16 TEST", "delivery_postcode": "EH54 TEST", "first_collection_schedule_earliest":"Wed, 06 Jan 2021 14:00:00 GMT", "first_collection_schedule_latest":"Wed, 06 Jan 2021 16:00:00 GMT", "last_delivery_schedule_earliest":"Thu, 07 Jan 2021 06:30:00 GMT", "last_delivery_schedule_latest":"Thu, 07 Jan 2021 07:00:00 GMT", "scheduled_collection_date":"Wed, 06 Jan 2021 00:00:00 GMT", "scheduled_delivery_date":"Thu, 07 Jan 2021 00:00:00 GMT", "shipment_number":"TEST", "vehicle_type":"Tractor Unit / Curtain side", "delivered_at":null}' \
+            http://localhost:5000/api/shipments_tracking
         ```
     <br>Further, to mark a particular `shipment_number` as having been delivered, a PATCH request can be sent to 
     `http://localhost:5000/api/shipments_tracking/<shipment_number>`. For example:
