@@ -17,13 +17,13 @@
 1.  The location tracking data feeds through to the API and can be viewed by\
     navigating to `http://localhost:5000/api/location_tracking`, whilst the\
     shipments data can be viewed at `http://localhost:5000/api/shipments_tracking`.
-2.  Individual shipments can be tracked by navigating to
+2.  Individual shipments can be tracked by navigating to<br>
         `http://localhost:5000/api/location_tracking/<shipment_number>`
-    and
+    and<br>
         `http://localhost:5000/api/shipments_tracking/<shipment_number>`
 3.  Data can be ingested by sending POST requests to the previous two URLs.\
     This can be done by opening a bash terminal and running, for example,
-    to send a new set of coordinates for the `shipment_number` `SEZHUK-201218-000183`:
+    to send a new set of coordinates for the `shipment_number` `SEZHUK-201218-000183`:<br>
         ```
         {
             curl -X POST \
@@ -32,10 +32,10 @@
                 http://localhost:5000/api/location_tracking/SEZHUK-201218-000183
         }
         ```
-    This POST request will also write the new data to the database.
+    <br>This POST request will also write the new data to the database.
 
     For adding new data to the shipments tracking data, a similar procedure can be followed.
-    For example, to add a new shipment:
+    For example, to add a new shipment:<br>
         ```
         {
             curl -X POST \
@@ -44,7 +44,7 @@
                 http://localhost:5000/api/shipments_tracking
         }
         ```
-    Further, to mark a particular `shipment_number` as having been delivered, a PATCH request can be sent to 
+    <br>Further, to mark a particular `shipment_number` as having been delivered, a PATCH request can be sent to 
     `http://localhost:5000/api/shipments_tracking/<shipment_number>`. For example:
         `curl -X PATCH http://localhost:5000/api/location_tracking/TEST`
 
