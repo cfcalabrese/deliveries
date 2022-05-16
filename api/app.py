@@ -312,6 +312,7 @@ def calculate_delivery_groups():
                 day, all_undelivered_shipments
             )
         )
+        
         for outcode in coll_outcodes:
             filtered_by_outcode = list(
                 filter(lambda d: d["collection_outcode"] ==\
@@ -351,7 +352,7 @@ def calculate_delivery_groups():
     
     response = {
         "status": "success",
-        "test": delivery_groups,
+        "data": delivery_groups,
     }
 
     return jsonify(response)

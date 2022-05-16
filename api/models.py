@@ -1,7 +1,7 @@
 from flask_sqlalchemy import SQLAlchemy
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.dialects.postgresql import UUID, VARCHAR
-from sqlalchemy import Column, Float, Text, DateTime, Date
+from sqlalchemy import Column, Float, Text, DateTime, Date, null
 
 from uuid import uuid4
 
